@@ -26,6 +26,25 @@ local currentbranch = function()
   return nyagos.eval('git rev-parse --abbrev-ref HEAD 2> nul')
 end
 
+-- follow up Intermediate state
+local currentstatus = function()
+  local status = ''
+
+  -- https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+  -- r="|REBASE"
+    -- r="|REBASE-i"
+    -- r="|REBASE-m"
+  -- r="|AM"
+  -- r="|AM/REBASE"
+  -- r="|MERGING"
+  -- r="|CHERRY-PICKING"
+  -- r="|REVERTING"
+  -- r="|BISECTING"
+
+
+  return status
+end
+
 -- subcommands
 local gitsubcommands={}
 
